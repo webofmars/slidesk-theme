@@ -1,11 +1,13 @@
 {
-  "name": "SliDesk & Node.js",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "name": "Alpine",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine-3.21",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/node:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "forwardPorts": [5000],
+  "remoteEnv": {
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -14,17 +16,9 @@
         "github.copilot",
         "github.copilot-chat",
         "ms-vscode.makefile-tools",
-        "esbenp.prettier-vscode"
-      ],
-      "mcp": {
-        "servers": {
-          "playwright": {
-            "command": "npx",
-            "args": ["@playwright/mcp@latest"]
-          }
-        }
-      }
+        "esbenp.prettier-vscode",
+        "gouz.sdf"
+      ]
     }
-  },
-  "postCreateCommand": "npm install"
+  }
 }

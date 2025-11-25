@@ -4,36 +4,42 @@
  * Official theme for SliDesk presentations following Hoverkraft branding guidelines.
  * https://hoverkraft.cloud/en/brand-guidelines/
  *
- * Color Palette:
- * - Primary: #0066CC (Hoverkraft Blue)
- * - Secondary: #004499 (Dark Blue)
- * - Accent: #00CC99 (Teal/Green)
- * - Light: #F5F7FA (Light Gray)
- * - Dark: #1A1A2E (Dark Navy)
- * - Text: #333333 (Dark Gray)
- * - White: #FFFFFF
+ * Color Palette (per https://hoverkraft.cloud/en/brand-guidelines/):
+ * - Primary: #1D2026
+ * - Secondary: #1998FF
+ * - Accent: #FF5A02
+ * - Info: #00B3FF
+ * - Warning: #FFE671
+ * - Danger: #FF696D
+ * - Success: #00D663
+ * - Neutral Light: #506690
+ * - Neutral Dark: #000000
  */
 
 :root {
   /* Hoverkraft Brand Colors */
-  --hk-primary: #0066cc;
-  --hk-primary-dark: #004499;
-  --hk-primary-light: #3399ff;
-  --hk-accent: #00cc99;
-  --hk-accent-dark: #00996b;
-  --hk-background-light: #f5f7fa;
-  --hk-background-dark: #1a1a2e;
-  --hk-text-dark: #333333;
-  --hk-text-light: #ffffff;
-  --hk-text-muted: #666666;
+  --hk-primary: #1d2026;
+  --hk-primary-dark: #000;
+  --hk-primary-light: #506690;
+  --hk-secondary: #1998ff;
+  --hk-accent: #ff5a02;
+  --hk-info: #00b3ff;
+  --hk-warning: #ffe671;
+  --hk-danger: #ff696d;
+  --hk-success: #00d663;
+  --hk-background-light: #fff;
+  --hk-background-dark: #000;
+  --hk-text-dark: #1d2026;
+  --hk-text-light: #fff;
+  --hk-text-muted: #506690;
 
   /* Typography */
-  --hk-font-primary: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial,
-    sans-serif;
-  --hk-font-heading: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial,
-    sans-serif;
-  --hk-font-code: "Fira Code", "Monaco", "Consolas", "Liberation Mono",
-    monospace;
+  --hk-font-primary:
+    "Inter", "Segoe UI", "Roboto", "Helvetica Neue", arial, sans-serif;
+  --hk-font-heading:
+    "Inter", "Segoe UI", "Roboto", "Helvetica Neue", arial, sans-serif;
+  --hk-font-code:
+    "Fira Code", "Monaco", "Consolas", "Liberation Mono", monospace;
 
   /* Spacing */
   --hk-spacing-xs: 0.5rem;
@@ -48,9 +54,9 @@
   --hk-radius-lg: 16px;
 
   /* Shadows */
-  --hk-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --hk-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --hk-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --hk-shadow-sm: 0 2px 4px rgb(0 0 0 / 10%);
+  --hk-shadow-md: 0 4px 12px rgb(0 0 0 / 15%);
+  --hk-shadow-lg: 0 8px 24px rgb(0 0 0 / 20%);
 }
 
 /* Base Slide Styles */
@@ -96,12 +102,12 @@ h6 {
 
 h1 {
   font-size: 3.5rem;
-  color: var(--hk-primary);
+  color: var(--hk-secondary);
 }
 
 h2 {
   font-size: 2.5rem;
-  color: var(--hk-primary-dark);
+  color: var(--hk-primary);
 }
 
 h3 {
@@ -117,14 +123,14 @@ p {
 
 /* Links */
 a {
-  color: var(--hk-primary);
+  color: var(--hk-secondary);
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s ease;
 }
 
 a:hover {
-  border-bottom-color: var(--hk-primary);
+  border-bottom-color: var(--hk-secondary);
 }
 
 /* Lists */
@@ -143,16 +149,16 @@ li {
 code {
   font-family: var(--hk-font-code);
   font-size: 0.85em;
-  background-color: rgba(0, 102, 204, 0.1);
+  background-color: var(--hk-primary-light);
   padding: 0.2em 0.4em;
   border-radius: var(--hk-radius-sm);
-  color: var(--hk-primary-dark);
+  color: var(--hk-secondary);
 }
 
 pre {
   font-family: var(--hk-font-code);
   font-size: 0.75em;
-  background-color: var(--hk-background-dark);
+  background-color: var(--hk-primary);
   color: var(--hk-text-light);
   padding: var(--hk-spacing-sm);
   border-radius: var(--hk-radius-md);
@@ -173,7 +179,8 @@ blockquote {
   border-left: 4px solid var(--hk-accent);
   margin: var(--hk-spacing-sm) 0;
   padding: var(--hk-spacing-sm) var(--hk-spacing-md);
-  background-color: rgba(0, 204, 153, 0.1);
+  background-color: var(--hk-warning);
+  color: var(--hk-primary);
   border-radius: 0 var(--hk-radius-md) var(--hk-radius-md) 0;
   text-align: left;
   font-style: italic;
@@ -205,10 +212,6 @@ th {
   color: var(--hk-text-light);
 }
 
-tr:nth-child(even) {
-  background-color: rgba(0, 102, 204, 0.05);
-}
-
 /* Split Layout */
 .split .content {
   display: flex;
@@ -227,7 +230,7 @@ tr:nth-child(even) {
   background: linear-gradient(
     135deg,
     var(--hk-primary) 0%,
-    var(--hk-primary-dark) 100%
+    var(--hk-secondary) 100%
   );
   color: var(--hk-text-light);
 }
@@ -238,13 +241,13 @@ tr:nth-child(even) {
 }
 
 .title-slide h2 {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   font-weight: 400;
 }
 
 /* Dark Slide */
 .dark-slide {
-  background-color: var(--hk-background-dark);
+  background-color: var(--hk-primary);
   color: var(--hk-text-light);
 }
 
@@ -255,7 +258,7 @@ tr:nth-child(even) {
 }
 
 .dark-slide a {
-  color: var(--hk-primary-light);
+  color: var(--hk-secondary);
 }
 
 /* Accent Slide */
@@ -263,7 +266,7 @@ tr:nth-child(even) {
   background: linear-gradient(
     135deg,
     var(--hk-accent) 0%,
-    var(--hk-accent-dark) 100%
+    var(--hk-success) 100%
   );
   color: var(--hk-text-light);
 }
@@ -293,7 +296,8 @@ tr:nth-child(even) {
 
 /* Title Top Layout */
 .title-top {
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   padding-top: var(--hk-spacing-md);
 }
@@ -338,7 +342,7 @@ tr:nth-child(even) {
 
 /* Progress Bar Override */
 .sd-progress {
-  background-color: var(--hk-primary);
+  background-color: var(--hk-secondary);
 }
 
 /* Print Styles */

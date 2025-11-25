@@ -1,48 +1,27 @@
-name: Need fix to issue
+name: Need fix to Issue
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      #checkov:skip=CKV_GHA_7: required
+      manual-commit-ref:
+        description: "The SHA of the commit to get the diff for"
+        required: true
+      manual-base-ref:
+        description: "By default, the commit entered above is compared to the one directly before it; to go back further, enter an earlier SHA here"
+        required: false
 
 permissions: {}
 
 jobs:
-  need-fix:
-    runs-on: ubuntu-latest
+  main:
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/need-fix-to-issue.yml@5e8d0e6d1e76d8577a070db6d0128a91b1c9d5ad # 0.30.2
     permissions:
       contents: read
       issues: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Find and close related issues
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const commits = ${{ toJson(github.event.commits) }};
-            const closePatterns = [
-              /close[sd]?\s+#(\d+)/gi,
-              /fix(?:e[sd])?\s+#(\d+)/gi,
-              /resolve[sd]?\s+#(\d+)/gi
-            ];
-
-            for (const commit of commits) {
-              for (const pattern of closePatterns) {
-                let match;
-                while ((match = pattern.exec(commit.message)) !== null) {
-                  const issueNumber = parseInt(match[1]);
-                  try {
-                    await github.rest.issues.update({
-                      owner: context.repo.owner,
-                      repo: context.repo.repo,
-                      issue_number: issueNumber,
-                      state: 'closed'
-                    });
-                    console.log(`Closed issue #${issueNumber}`);
-                  } catch (error) {
-                    console.log(`Could not close issue #${issueNumber}: ${error.message}`);
-                  }
-                }
-              }
-            }
+    with:
+      manual-commit-ref: ${{ inputs.manual-commit-ref }}
+      manual-base-ref: ${{ inputs.manual-base-ref }}

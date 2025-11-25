@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     if: github.ref_name == github.event.repository.default_branch
-    name: Deploy example slides
+    name: Deploy website
     needs: ci
     runs-on: ubuntu-latest
     permissions:
@@ -34,22 +34,16 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.url }}
+    outputs:
+      page-url: ${{ steps.deployment.outputs.url }}
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
-          name: build-output
-          path: build
+          artifact-ids: ${{ needs.ci.outputs.build-artifact-id }}
+          path: ${{ needs.ci.outputs.build-path }}
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - id: deployment
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@ed864a88ec8610dc2a1b9aab1dbde2864bf75df4 # 0.16.0
         with:
-          path: build
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          build-path: ${{ needs.ci.outputs.build-path }}

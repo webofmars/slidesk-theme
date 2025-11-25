@@ -6,21 +6,23 @@ on:
       build-artifact-id:
         description: "The artifact ID of the build output"
         value: ${{ jobs.build.outputs.build-artifact-id }}
+      build-path:
+        description: "The path to the build output"
+        value: ${{ jobs.build.outputs.build-path }}
 
 permissions: {}
 
+env:
+  SLIDES_BUILD_PATH: ./packages/slides/build
+
 jobs:
   linter:
-    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@0.30.2
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@5e8d0e6d1e76d8577a070db6d0128a91b1c9d5ad # 0.30.2
     permissions:
       actions: read
       contents: read
       security-events: write
       statuses: write
-    with:
-      linter-env: |
-        FILTER_REGEX_EXCLUDE=packages/slides/build/**/*
-        VALIDATE_CSS=false
 
   build:
     name: Build and verify SliDesk theme
@@ -28,36 +30,22 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build-artifact-id: ${{ steps.upload-build.outputs.artifact-id }}
+      build-path: ${{ env.SLIDES_BUILD_PATH }}
+    container: gouz/slidesk
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           persist-credentials: false
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".node-version"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build theme
-        run: npm run build --workspace=@hoverkraft/slidesk-theme
-
       - name: Build example slides
-        run: npm run build --workspace=@hoverkraft/slidesk-theme-slides
+        run: slidesk -s "$SLIDES_BUILD_PATH" ./packages/slides
 
       - name: Upload build artifacts
         id: upload-build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 #v5.0.0
         with:
           name: build-output
-          path: packages/slides/build
+          path: ${{ env.SLIDES_BUILD_PATH }}
+          if-no-files-found: error

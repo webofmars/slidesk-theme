@@ -8,41 +8,36 @@ help: ## Show help message
 
 include .env
 
-prepare: ## Prepare stack to run
-	npm install
-
 start: ## Start application in dev mode
-	npm run start
+	docker run --rm -it \
+		-v "$(CURDIR)":/slidesk \
+		-w /slidesk/packages/slides \
+		-p 1337:1337 \
+		gouz/slidesk:latest \
+		slidesk .
 
-lint: ## Run linters
-	npm run lint -- $(filter-out $@,$(MAKECMDGOALS))
+lint: ## Run linter
 	$(call run_linter,)
 
-lint-fix: ## Run linters with fix
-	npm run lint:fix -- $(filter-out $@,$(MAKECMDGOALS))
-	$(MAKE) linter-fix
-
-build: ## Build libs and applications
-	npm run build
-
-test: ## Run tests
-	npm run test:ci
-
-ci: ## Run CI checks
-	$(MAKE) prepare
-	$(MAKE) lint-fix
-	npm audit fix
-	$(MAKE) build
-	$(MAKE) test
-
-linter-fix: ## Execute linting and fix
+lint-fix: ## Execute linting and fix
 	$(call run_linter, \
+		-e FIX_CSS=true \
 		-e FIX_CSS_PRETTIER=true \
 		-e FIX_JSON_PRETTIER=true \
 		-e FIX_YAML_PRETTIER=true \
 		-e FIX_MARKDOWN=true \
 		-e FIX_MARKDOWN_PRETTIER=true \
-		-e FIX_NATURAL_LANGUAGE=true)
+		-e FIX_NATURAL_LANGUAGE=true \
+	)
+
+build: ## Build libs and applications
+	rm -fr packages/slides/build
+	$(call run_slidesk,--save build)
+	cp packages/theme/hoverkraft.css packages/slides/build/hoverkraft.css
+
+ci: ## Run CI checks
+	$(MAKE) lint
+	$(MAKE) build
 
 define run_linter
 	DEFAULT_WORKSPACE="$(CURDIR)"; \
@@ -53,18 +48,25 @@ define run_linter
 		-e DEFAULT_WORKSPACE="$$DEFAULT_WORKSPACE" \
 		-e FILTER_REGEX_INCLUDE="$(filter-out $@,$(MAKECMDGOALS))" \
 		-e IGNORE_GITIGNORED_FILES=true \
-		-e VALIDATE_CSS=false \
 		$(1) \
 		-v $$VOLUME \
 		--rm \
 		$$LINTER_IMAGE
 endef
 
-define open-in-browser
-	@if command -v x-www-browser &> /dev/null ; then x-www-browser $(1); \
-	elif command -v xdg-open &> /dev/null ; then xdg-open $(1); \
-	elif command -v open &> /dev/null ; then open $(1); \
-	elif command -v start &> /dev/null ; then	start $(1);	fi;
+define run_slidesk
+	DEFAULT_WORKSPACE="$(CURDIR)"; \
+	SLIDESK_IMAGE="gouz/slidesk:latest"; \
+	VOLUME="$$DEFAULT_WORKSPACE:$$DEFAULT_WORKSPACE"; \
+	docker run \
+		-v $$VOLUME \
+		-w $$DEFAULT_WORKSPACE/packages/slides \
+		-u $(shell id -u):$(shell id -g) \
+		--rm \
+		$$SLIDESK_IMAGE \
+		slidesk . \
+		$(1) \
+		$(filter-out $@,$(MAKECMDGOALS))
 endef
 
 #############################

@@ -1,8 +1,4 @@
 {
   "threshold": 5,
-  "ignore": [
-    "**/coverage/**",
-    "**/node_modules/**",
-    "**/packages/slides/build/**"
-  ]
+  "ignore": ["**/packages/slides/build/**"]
 }

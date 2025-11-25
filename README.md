@@ -30,18 +30,18 @@ Official Hoverkraft theme for SliDesk presentations.
 
 | Package           | Description                                                              |
 | ----------------- | ------------------------------------------------------------------------ |
-| `packages/theme`  | Source for the published `@hoverkraft/slidesk-theme` package.           |
+| `packages/theme`  | Source for the published `@hoverkraft/slidesk-theme` package.            |
 | `packages/slides` | Example SliDesk presentation showcasing the theme, used for QA and docs. |
 
 ## Installation
 
 ```bash
-npm install @hoverkraft/slidesk-theme
+slidesk theme install @hoverkraft-tech/slidesk-theme
 ```
 
 Reference the theme in your SliDesk presentation:
 
-```
+```md
 /::
 custom_css: node_modules/@hoverkraft/slidesk-theme/hoverkraft.css
 ::/
@@ -53,68 +53,70 @@ custom_css: node_modules/@hoverkraft/slidesk-theme/hoverkraft.css
 
 ## Available Slide Classes
 
-| Class          | Description                                |
-| -------------- | ------------------------------------------ |
-| `.title-slide` | Gradient background for title/intro slides |
-| `.dark-slide`  | Dark navy background for emphasis          |
-| `.accent-slide`| Teal gradient for call-to-action slides    |
-| `.split`       | Two-column layout                          |
-| `.title-top`   | Title positioned at top                    |
-| `.text-left`   | Left-aligned text content                  |
-| `.steps`       | Progressive content reveal                 |
+| Class           | Description                                |
+| --------------- | ------------------------------------------ |
+| `.title-slide`  | Gradient background for title/intro slides |
+| `.dark-slide`   | Dark navy background for emphasis          |
+| `.accent-slide` | Teal gradient for call-to-action slides    |
+| `.split`        | Two-column layout                          |
+| `.title-top`    | Title positioned at top                    |
+| `.text-left`    | Left-aligned text content                  |
+| `.steps`        | Progressive content reveal                 |
 
 ## Color Palette
 
-| Color          | Hex       | Usage                |
-| -------------- | --------- | -------------------- |
-| Primary        | `#0066CC` | Headlines, links     |
-| Primary Dark   | `#004499` | Subheadings          |
-| Accent         | `#00CC99` | Highlights, CTAs     |
-| Background     | `#F5F7FA` | Slide backgrounds    |
-| Dark           | `#1A1A2E` | Dark slide mode      |
-| Text           | `#333333` | Body text            |
+| Color         | Hex       | Usage                              |
+| ------------- | --------- | ---------------------------------- |
+| Primary       | `#1D2026` | Core headings, dark surfaces       |
+| Secondary     | `#1998FF` | Links, interactive accents         |
+| Accent        | `#FF5A02` | Calls to action, emphasis blocks   |
+| Info          | `#00B3FF` | Informational callouts             |
+| Warning       | `#FFE671` | Warning banners and highlights     |
+| Danger        | `#FF696D` | Error states and destructive cues  |
+| Success       | `#00D663` | Positive confirmations             |
+| Neutral Light | `#506690` | Secondary text, dividers, code bg  |
+| Neutral Dark  | `#000000` | Deep backgrounds, high-contrast UI |
 
 ## Development
 
-Use npm workspaces to manage both packages in the monorepo:
+All local workflows run through Dockerized [Slidesk](https://slidesk.github.io/slidesk-doc/docs/installation/docker/) and the provided Make targets:
 
 ```bash
-npm install                                                    # Install workspace dependencies
-npm run start --workspace=@hoverkraft/slidesk-theme-slides     # Launch example presentation
-npm run build --workspaces                                     # Build all packages
+make start                     # Launch Slidesk dev server on http://localhost:1337
+make build                     # Export static slides + bundle CSS
+make lint                      # Run repo lint suite via container
 ```
 
 ### Local Development
 
 1. Clone the repository
-2. Run `npm install`
-3. Run `npm run start` to launch the example presentation
+2. Ensure Docker Desktop / Engine is available
+3. Run `make start` to launch the example presentation (serves on `http://localhost:1337`)
 4. Edit files in `packages/theme` to modify the theme
-5. Changes will be reflected in the example presentation
+5. Changes will be reflected in the example presentation while the Slidesk container is running
 
 ### Using DevContainer
 
-This repository includes a DevContainer configuration for VS Code / GitHub Codespaces:
+This repository includes a DevContainer configuration for Visual Studio Code / GitHub Codespaces:
 
-1. Open in VS Code with the Remote Containers extension
+1. Open in Visual Studio Code with the Remote Containers extension
 2. Reopen in Container when prompted
-3. Run `npm install && npm run start`
+3. Run `make start`
 
 ## Testing
 
 ```bash
-npm run lint --workspaces    # Run linters
-npm run build --workspaces   # Build all packages
-npm run test --workspaces    # Run tests
+make lint        # Run linters (Dockerized)
+make build       # Build slides and copy CSS bundle
 ```
 
-- The example presentation can be smoke-tested locally with `npm run start`.
+- The example presentation can be smoke-tested locally with `make start` (Slidesk Docker image).
 - Visual testing can be done by viewing the presentation in a browser.
 
 ## Releasing
 
 1. Update semantic versioning in `packages/theme/package.json`.
-2. Build the packages with `npm run build --workspaces`.
+2. Build the packages with `make build`.
 3. Validate the example presentation locally.
 4. Publish the theme package via your preferred workflow.
 

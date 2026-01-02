@@ -9,7 +9,7 @@ yarn-error.log*
 packages/slides/build/
 
 # Symlinks for local development
-packages/slides/hoverkraft.css
+packages/slides/brand.css
 
 # IDE
 .vscode/

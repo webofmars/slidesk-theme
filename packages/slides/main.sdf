@@ -1,18 +1,18 @@
 /::
-custom_css: hoverkraft.css
+custom_css: build/brand.css
 ::/
 
-## Hoverkraft SliDesk Theme .[title-slide]
+## webofmars SliDesk Theme .[title-slide]
 
 Official theme for SliDesk presentations
 
-Powered by Hoverkraft
+Powered by webofmars
 
 ## About This Theme .[text-left]
 
-The Hoverkraft SliDesk Theme provides a consistent, branded experience.
+The webofmars SliDesk Theme provides a consistent, branded experience.
 
-- Follows Hoverkraft branding guidelines
+- Follows webofmars branding guidelines
 - Responsive and accessible design
 - Multiple slide layouts included
 - Easy to customize and extend
@@ -89,7 +89,7 @@ Flexible columns that automatically adjust to your content.
 
 ## Features .[steps]
 
-- Consistent Branding - All slides follow Hoverkraft guidelines
+- Consistent Branding - All slides follow webofmars guidelines
 - Multiple Layouts - Split, title-top, text-left, and more
 - Dark Mode - Built-in dark slide variant
 - Step Animations - Progressive content reveal
@@ -101,7 +101,7 @@ Flexible columns that automatically adjust to your content.
 >
 > Dieter Rams
 
-The Hoverkraft theme embraces simplicity.
+The webofmars theme embraces simplicity.
 
 ## Getting Started .[text-left]
 
@@ -115,10 +115,10 @@ The Hoverkraft theme embraces simplicity.
 
 Build beautiful, branded presentations with ease.
 
-Use the Hoverkraft SliDesk theme for consistent, professional slides.
+Use the webofmars SliDesk theme for consistent, professional slides.
 
 ## Thank You .[title-slide]
 
 ### Questions?
 
-Visit github.com/hoverkraft-tech/slidesk-theme
+Visit github.com/webofmars/slidesk-theme

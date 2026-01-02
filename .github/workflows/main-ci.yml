@@ -44,6 +44,6 @@ jobs:
           path: ${{ needs.ci.outputs.build-path }}
 
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@ed864a88ec8610dc2a1b9aab1dbde2864bf75df4 # 0.16.0
+        uses: webofmars/ci-github-publish/actions/deploy/github-pages@ed864a88ec8610dc2a1b9aab1dbde2864bf75df4 # 0.16.0
         with:
           build-path: ${{ needs.ci.outputs.build-path }}

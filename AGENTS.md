@@ -1,11 +1,11 @@
 # AGENTS.md — agent instructions and operational contract
 
-This document defines the operational guardrails for automated coding agents working in the `slidesk-theme` workspace. It summarizes how to stay aligned with Hoverkraft standards; it is not a replacement for the developer documentation referenced below.
+This document defines the operational guardrails for automated coding agents working in the `slidesk-theme` workspace. It summarizes how to stay aligned with webofmars standards; it is not a replacement for the developer documentation referenced below.
 
 ## Organization-wide guidelines (required)
 
-- Follow the prioritized shared instructions in [hoverkraft-tech/.github/AGENTS.md](https://github.com/hoverkraft-tech/.github/blob/main/AGENTS.md) before making any change.
-- Apply the engineering guidance published in `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and the Hoverkraft [branding guidelines](https://hoverkraft.cloud/en/brand-guidelines/) when editing UI, assets, or workflows.
+- Follow the prioritized shared instructions in [webofmars/.github/AGENTS.md](https://github.com/webofmars/.github/blob/main/AGENTS.md) before making any change.
+- Apply the engineering guidance published in `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and the webofmars [branding guidelines](https://webofmars.com/en/brand-guidelines/) when editing UI, assets, or workflows.
 - Honor the global engineering rules provided by the workspace owner (Clean Code, SOLID, accessibility-first, least privilege). Do not introduce new dependencies that are unmaintained or violate the licensing posture.
 
 ## Quick Start
@@ -37,7 +37,7 @@ make ci                         # Run lint + build (CI parity) for pre-submit co
 
 ### Code Quality Expectations
 
-- Keep `packages/theme/hoverkraft.css`, the `.sdf` layout files (split, accent, title, etc.), and `files.json` in sync—new components need both styling and SlideSk layout definitions.
+- Keep `packages/theme/brand.css`, the `.sdf` layout files (split, accent, title, etc.), and `files.json` in sync—new components need both styling and SlideSk layout definitions.
 - Maintain accessibility: preserve high-contrast palettes, focus states, readable typography, and screen-reader-friendly ordering per the branding guidelines.
 - Treat `packages/slides` as the authoritative smoke-test surface; update or add demo slides whenever altering public-facing layouts or classes so reviewers can preview the change.
 - Avoid ad-hoc build scripts; extend the existing Make targets or Docker-driven helpers when new automation is required, and prefer pure functions/utilities to keep side effects isolated.

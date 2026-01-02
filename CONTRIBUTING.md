@@ -7,7 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Development Guidelines
 
-- Ensure theme changes maintain consistency with [Hoverkraft branding guidelines](https://hoverkraft.cloud/en/brand-guidelines/).
+- Ensure theme changes maintain consistency with [webofmars branding guidelines](https://webofmars.com/en/brand-guidelines/).
 - Test theme changes with both light and dark modes when applicable.
 - Validate presentations work correctly with SliDesk before submitting.
 

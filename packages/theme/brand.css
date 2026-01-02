@@ -1,0 +1,497 @@
+/**
+ * webofmars SliDesk Theme
+ *
+ * Official theme for SliDesk presentations following webofmars branding guidelines.
+ * https://webofmars.com/en/brand-guidelines/
+ *
+ * Color Palette (per https://webofmars.com/en/brand-guidelines/):
+ * - Primary: #2C285B
+ * - Secondary: #09D4FD
+ * - Accent: #FF5A02
+ * - Info: #00B3FF
+ * - Warning: #FFE671
+ * - Danger: #FF696D
+ * - Success: #00D663
+ * - Neutral Light: #506690
+ * - Neutral Dark: #000000
+ */
+
+:root {
+  /* webofmars brand colors */
+  --brand-primary: #2C285B;
+  --brand-primary-dark: #2C285B;
+  --brand-primary-light: #fafafa;
+  --brand-secondary: #00b3ff;
+  --brand-accent: #ff5a02;
+  --brand-info: #00b3ff;
+  --brand-warning: #ffe671;
+  --brand-danger: #ff696d;
+  --brand-success: #00d663;
+  --brand-background-light: #fff;
+  --brand-background-dark: #000;
+  --brand-text-dark: #1d2026;
+  --brand-text-light: #fff;
+  --brand-text-muted: #506690;
+  /* webofmars */
+  --brand-neutral: #68A8DE;
+  --brand-other1: #727AEC;
+  --brand-other2: #7379EC;
+  --brand-other3: #AE46E2;
+  --brand-other4: #EC10D7;
+  --brand-other5: #E24646;
+
+  /* Typography */
+  --brand-font-primary:
+    "Inter", "Segoe UI", "Roboto", "Helvetica Neue", arial, sans-serif;
+  --brand-font-heading:
+    "Inter", "Segoe UI", "Roboto", "Helvetica Neue", arial, sans-serif;
+  --brand-font-code:
+    "Fira Code", "Monaco", "Consolas", "Liberation Mono", monospace;
+
+  /* Spacing */
+  --brand-spacing-xs: 0.5rem;
+  --brand-spacing-sm: 1rem;
+  --brand-spacing-md: 2rem;
+  --brand-spacing-lg: 4rem;
+  --brand-spacing-xl: 6rem;
+
+  /* Border Radius */
+  --brand-radius-sm: 4px;
+  --brand-radius-md: 8px;
+  --brand-radius-lg: 16px;
+
+  /* Shadows */
+  --brand-shadow-sm: 0 2px 4px rgb(0 0 0 / 10%);
+  --brand-shadow-md: 0 4px 12px rgb(0 0 0 / 15%);
+  --brand-shadow-lg: 0 8px 24px rgb(0 0 0 / 20%);
+}
+
+/* Base Slide Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand-background-light);
+  font-family: var(--brand-font-primary);
+  font-size: 32px;
+  color: var(--brand-text-dark);
+  line-height: 1.6;
+}
+
+/* Slide Container */
+.sd-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--brand-spacing-lg);
+  box-sizing: border-box;
+  background-color: var(--brand-background-light);
+  text-align: center;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+  margin: 0 0 var(--brand-spacing-sm) 0;
+  color: var(--brand-primary-dark);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--brand-secondary);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--brand-primary);
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: var(--brand-text-dark);
+}
+
+/* Paragraphs */
+p {
+  margin: 0 0 var(--brand-spacing-sm) 0;
+  max-width: 80%;
+}
+
+/* Links */
+a {
+  color: var(--brand-secondary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--brand-secondary);
+}
+
+/* Lists */
+ul,
+ol {
+  text-align: left;
+  margin: var(--brand-spacing-sm) 0;
+  padding-left: var(--brand-spacing-md);
+}
+
+li {
+  margin: var(--brand-spacing-xs) 0;
+}
+
+/* Code */
+code {
+  font-family: var(--brand-font-code);
+  font-size: 0.85em;
+  background-color: var(--brand-primary-light);
+  padding: 0.2em 0.4em;
+  border-radius: var(--brand-radius-sm);
+  color: var(--brand-secondary);
+}
+
+pre {
+  font-family: var(--brand-font-code);
+  font-size: 0.75em;
+  background-color: var(--brand-primary);
+  color: var(--brand-text-light);
+  padding: var(--brand-spacing-sm);
+  border-radius: var(--brand-radius-md);
+  overflow-x: auto;
+  text-align: left;
+  max-width: 90%;
+  box-shadow: var(--brand-shadow-md);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--brand-accent);
+  margin: var(--brand-spacing-sm) 0;
+  padding: var(--brand-spacing-sm) var(--brand-spacing-md);
+  background-color: var(--brand-warning);
+  color: var(--brand-primary);
+  border-radius: 0 var(--brand-radius-md) var(--brand-radius-md) 0;
+  text-align: left;
+  font-style: italic;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: var(--brand-radius-md);
+  box-shadow: var(--brand-shadow-sm);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: var(--brand-spacing-sm) auto;
+  font-size: 0.9em;
+}
+
+th,
+td {
+  border: 1px solid var(--brand-primary-light);
+  padding: var(--brand-spacing-xs) var(--brand-spacing-sm);
+}
+
+th {
+  background-color: var(--brand-primary);
+  color: var(--brand-text-light);
+}
+
+/* Split Layout */
+.split .content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--brand-spacing-md);
+}
+
+.split .content > div {
+  flex: 1;
+  padding: var(--brand-spacing-sm);
+}
+
+/* Title Slide */
+.title-slide {
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary) 0%,
+    var(--brand-secondary) 100%
+  );
+  color: var(--brand-text-light);
+}
+
+.title-slide h1 {
+  color: var(--brand-text-light);
+  font-size: 4rem;
+}
+
+.title-slide h2 {
+  color: rgb(255 255 255 / 90%);
+  font-weight: 400;
+}
+
+/* Dark Slide */
+.dark-slide {
+  background-color: var(--brand-primary);
+  color: var(--brand-text-light);
+}
+
+.dark-slide h1,
+.dark-slide h2,
+.dark-slide h3 {
+  color: var(--brand-text-light);
+}
+
+.dark-slide a {
+  color: var(--brand-secondary);
+}
+
+/* Accent Slide */
+.accent-slide {
+  background: linear-gradient(
+    135deg,
+    var(--brand-accent) 0%,
+    var(--brand-success) 100%
+  );
+  color: var(--brand-text-light);
+}
+
+.accent-slide h1,
+.accent-slide h2,
+.accent-slide h3 {
+  color: var(--brand-text-light);
+}
+
+/* Text Alignment Utilities */
+.text-left {
+  text-align: left;
+}
+
+.text-left h2 {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Title Top Layout */
+.title-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: var(--brand-spacing-md);
+}
+
+.title-top h2 {
+  margin-bottom: var(--brand-spacing-md);
+}
+
+/* Steps Animation Support */
+.sd-slide [data-step] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sd-slide [data-step].visible {
+  opacity: 1;
+}
+
+/* Emphasis Classes */
+.highlight {
+  color: var(--brand-accent);
+  font-weight: 600;
+}
+
+.primary {
+  color: var(--brand-primary);
+}
+
+.muted {
+  color: var(--brand-text-muted);
+  font-size: 0.85em;
+}
+
+/* webofmars Branding Elements */
+.brand-logo {
+  position: absolute;
+  bottom: var(--brand-spacing-sm);
+  right: var(--brand-spacing-sm);
+  opacity: 0.7;
+  height: 40px;
+}
+
+/* Progress Bar Override */
+.sd-progress {
+  background-color: var(--brand-secondary);
+}
+
+/* webofmars original theme import */
+.speaker {
+  img {
+    border: 2px solid var(--sd-primary-color);
+    border-radius: 100%;
+  }
+}
+
+.section {
+  h2 {
+    color: var(--sd-third-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.chapter {
+  h2 {
+    color: var(--sd-secondary-color);
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    padding-bottom: 1%;
+  }
+  h3 {
+    color: var(--sd-text-color);
+    padding-top: 1%;
+    text-align: left;
+    width: 98%;
+  }
+  h4 {
+    color: var(--sd-text-color);
+    padding-top: 1%;
+    text-align: left;
+    width: 98%;
+  }
+  p  {
+    color: var(--sd-primary-color);
+    width: 98%;
+    text-align: left;
+    padding-top: 1%;
+  }
+}
+
+.sd-slide ul {
+  width: 96%;
+}
+
+.sd-slide ol {
+  width: 96%;
+}
+
+.sd-slide pre {
+  width: 98%;
+  text-align: left;
+  padding-top: 1%;
+}
+
+.sd-slide table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.sd-slide th {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  background-color: var(--sd-primary-color);
+  color: white;
+  border: 1px solid var(--sd-primary-color);
+  font-weight: 600;
+}
+
+.sd-slide td {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+}
+
+.sd-slide tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.sd-slide tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Fix progress bar positioning above footer */
+#sd-progress {
+  position: fixed !important;
+  bottom: 60px !important;
+  --progress-height: 0.5rem;
+  --progress-inactive-color: #09D4FD;
+  --progress-active-color: #EC10D7;
+  --progress-hover-color: var(--sd-text-color);
+  height: var(--progress-height) !important;
+}
+
+/* Override progress bar colors if needed */
+#sd-progress .sd-progression {
+  background-color: var(--progress-inactive-color) !important;
+  height: var(--progress-height) !important;
+}
+
+#sd-progress .sd-progression.active {
+  background-color: var(--progress-active-color) !important;
+}
+
+#sd-progress .sd-progression:hover {
+  background-color: var(--progress-hover-color) !important;
+}
+
+/* ==========================================================================
+  Templates
+  ========================================================================== */
+
+  .split {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.split > div {
+  width: 50%;
+  padding: 1vh 1vw;
+}
+
+/* end of import */
+
+/* Print Styles */
+@media print {
+  .sd-slide {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+
+  .brand-logo {
+    opacity: 1;
+  }
+}

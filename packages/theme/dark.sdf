@@ -3,7 +3,7 @@
 A slide with dark background for emphasis or to highlight code.
 
 ```javascript
-const hoverkraft = {
+const webofmars = {
   theme: "slidesk",
   version: "1.0.0",
 };

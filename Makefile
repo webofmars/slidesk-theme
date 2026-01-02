@@ -33,7 +33,7 @@ lint-fix: ## Execute linting and fix
 build: ## Build libs and applications
 	rm -fr packages/slides/build
 	$(call run_slidesk,--save build)
-	cp packages/theme/hoverkraft.css packages/slides/build/hoverkraft.css
+	cp packages/theme/brand.css packages/slides/build/brand.css
 
 ci: ## Run CI checks
 	$(MAKE) lint

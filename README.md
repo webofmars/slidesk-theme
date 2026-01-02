@@ -1,6 +1,6 @@
-# @hoverkraft/slidesk-theme
+# @webofmars/slidesk-theme
 
-Official Hoverkraft theme for SliDesk presentations.
+Official webofmars theme for SliDesk presentations.
 
 ---
 
@@ -9,11 +9,11 @@ Official Hoverkraft theme for SliDesk presentations.
 
 ## Overview
 
-`@hoverkraft/slidesk-theme` delivers a production-ready Hoverkraft-branded experience for every SliDesk presentation. The theme enforces consistent styling based on the official [Hoverkraft Branding Guidelines](https://hoverkraft.cloud/en/brand-guidelines/).
+`@webofmars/slidesk-theme` delivers a production-ready webofmars-branded experience for every SliDesk presentation. The theme enforces consistent styling based on the official [webofmars Branding Guidelines](https://webofmars.com/).
 
 ## Feature Highlights
 
-- **Enforced branding**: Colors, typography, spacing, and component styling sourced from the Hoverkraft design system.
+- **Enforced branding**: Colors, typography, spacing, and component styling sourced from the webofmars design system.
 - **Accessibility-first**: Built with high contrast ratios and readable fonts.
 - **Responsive layout**: Works across different screen sizes and aspect ratios.
 - **Multiple layouts**: Split views, title slides, dark slides, and more.
@@ -30,20 +30,20 @@ Official Hoverkraft theme for SliDesk presentations.
 
 | Package           | Description                                                              |
 | ----------------- | ------------------------------------------------------------------------ |
-| `packages/theme`  | Source for the published `@hoverkraft/slidesk-theme` package.            |
+| `packages/theme`  | Source for the published `@webofmars/slidesk-theme` package.             |
 | `packages/slides` | Example SliDesk presentation showcasing the theme, used for QA and docs. |
 
 ## Installation
 
 ```bash
-slidesk theme install @hoverkraft-tech/slidesk-theme
+slidesk theme install @webofmars/slidesk-theme
 ```
 
 Reference the theme in your SliDesk presentation:
 
 ```md
 /::
-custom_css: node_modules/@hoverkraft/slidesk-theme/hoverkraft.css
+custom_css: node_modules/@webofmars/slidesk-theme/brand.css
 ::/
 
 # My Presentation .[title-slide]
@@ -126,7 +126,7 @@ Please review [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines, review expect
 
 ## Support
 
-Questions or issues? Open an issue in the [GitHub repository](https://github.com/hoverkraft-tech/slidesk-theme) or start a discussion.
+Questions or issues? Open an issue in the [GitHub repository](https://github.com/webofmars/slidesk-theme) or start a discussion.
 
 ## License
 

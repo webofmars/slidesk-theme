@@ -1,12 +1,12 @@
 /::
-custom_css: hoverkraft.css
+custom_css: brand.css
 ::/
 
 ## TITLE .[title-slide]
 
 ## Default Slide
 
-This is a default slide with the Hoverkraft theme.
+This is a default slide with the webofmars theme.
 
 !include(split.sdf)
 

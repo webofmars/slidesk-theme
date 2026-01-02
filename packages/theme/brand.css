@@ -18,8 +18,8 @@
 
 :root {
   /* webofmars brand colors */
-  --brand-primary: #2C285B;
-  --brand-primary-dark: #2C285B;
+  --brand-primary: #2c285b;
+  --brand-primary-dark: #2c285b;
   --brand-primary-light: #fafafa;
   --brand-secondary: #00b3ff;
   --brand-accent: #ff5a02;
@@ -32,13 +32,14 @@
   --brand-text-dark: #1d2026;
   --brand-text-light: #fff;
   --brand-text-muted: #506690;
+
   /* webofmars */
-  --brand-neutral: #68A8DE;
-  --brand-other1: #727AEC;
-  --brand-other2: #7379EC;
-  --brand-other3: #AE46E2;
-  --brand-other4: #EC10D7;
-  --brand-other5: #E24646;
+  --brand-neutral: #68a8de;
+  --brand-other1: #727aec;
+  --brand-other2: #7379ec;
+  --brand-other3: #ae46e2;
+  --brand-other4: #ec10d7;
+  --brand-other5: #e24646;
 
   /* Typography */
   --brand-font-primary:
@@ -380,19 +381,22 @@ th {
     left: 2%;
     padding-bottom: 1%;
   }
+
   h3 {
     color: var(--sd-text-color);
     padding-top: 1%;
     text-align: left;
     width: 98%;
   }
+
   h4 {
     color: var(--sd-text-color);
     padding-top: 1%;
     text-align: left;
     width: 98%;
   }
-  p  {
+
+  p {
     color: var(--sd-primary-color);
     width: 98%;
     text-align: left;
@@ -446,10 +450,12 @@ th {
 #sd-progress {
   position: fixed !important;
   bottom: 60px !important;
+
   --progress-height: 0.5rem;
-  --progress-inactive-color: #09D4FD;
-  --progress-active-color: #EC10D7;
+  --progress-inactive-color: #09d4fd;
+  --progress-active-color: #ec10d7;
   --progress-hover-color: var(--sd-text-color);
+
   height: var(--progress-height) !important;
 }
 
@@ -471,7 +477,7 @@ th {
   Templates
   ========================================================================== */
 
-  .split {
+.split {
   display: flex;
   flex-direction: row;
   width: 100%;

@@ -18,7 +18,7 @@ permissions: {}
 
 jobs:
   main:
-    uses: webofmars/ci-github-common/.github/workflows/need-fix-to-issue.yml@5e8d0e6d1e76d8577a070db6d0128a91b1c9d5ad # 0.30.2
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/need-fix-to-issue.yml@5e8d0e6d1e76d8577a070db6d0128a91b1c9d5ad # 0.30.2
     permissions:
       contents: read
       issues: write

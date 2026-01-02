@@ -353,7 +353,9 @@ th {
   background-color: var(--brand-secondary);
 }
 
-/* webofmars original theme import */
+/* ---------------------------------------------------------------------------
+  webofmars original theme import
+  ---------------------------------------------------------------------------- */
 .speaker {
   img {
     border: 2px solid var(--sd-primary-color);
@@ -483,12 +485,9 @@ th {
   width: 100%;
 }
 
-.split > div {
-  width: 50%;
-  padding: 1vh 1vw;
-}
-
-/* end of import */
+/* ---------------------------------------------------------------------------
+  end of import
+------------------------------------------------------------------------------ */
 
 /* Print Styles */
 @media print {

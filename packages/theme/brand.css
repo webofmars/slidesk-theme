@@ -76,7 +76,7 @@ body {
   height: 100%;
   background-color: var(--brand-background-light);
   font-family: var(--brand-font-primary);
-  font-size: 32px;
+  font-size: 30px;
   color: var(--brand-text-dark);
   line-height: 1.6;
 }
@@ -110,17 +110,17 @@ h6 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   color: var(--brand-secondary);
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: var(--brand-primary);
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   color: var(--brand-other4);
 }
 
@@ -377,24 +377,35 @@ th {
 }
 
 .chapter {
+  align-items: flex-start !important;
+  padding: 0 !important;
+  text-align: left !important;
+
   h2 {
     color: var(--brand-secondary);
     position: absolute;
     top: 2%;
     left: 2%;
     padding-bottom: 1%;
+    margin: 0;
   }
 
   h3 {
-    color: var(--brand-other4); padding-top: 1%;
+    color: var(--brand-other4);
+    padding-top: 1%;
     text-align: left;
     width: 98%;
+    margin: 0;
+    padding-left: 2%;
   }
 
   h4 {
-    color: var(--brand-text-dark); padding-top: 1%;
+    color: var(--brand-text-dark);
+    padding-top: 1%;
     text-align: left;
     width: 98%;
+    margin: 0;
+    padding-left: 2%;
   }
 
   p {
@@ -402,6 +413,14 @@ th {
     width: 98%;
     text-align: left;
     padding-top: 1%;
+    margin: 0 0 var(--brand-spacing-sm) 0;
+    padding-left: 2%;
+  }
+
+  ul, ol {
+    margin-left: 0;
+    padding-left: calc(2% + 2rem);
+    width: 96%;
   }
 }
 
